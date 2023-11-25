@@ -5,6 +5,7 @@ import com.example.userserver.service.UserService;
 import com.example.userserver.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/user")
@@ -22,8 +23,9 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseUtil getAllUser(){
-        return new ResponseUtil("Ok","Successfully Loaded", null);
+    public String getAllUser(){
+        System.out.println("KKK");
+        return "awaaa";
     }
 
 }
