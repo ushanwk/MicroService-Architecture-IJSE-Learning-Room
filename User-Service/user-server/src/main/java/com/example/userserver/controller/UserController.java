@@ -6,6 +6,7 @@ import com.example.userserver.service.UserService;
 import com.example.userserver.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/user")
@@ -14,6 +15,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @PostMapping(params = {"username", "password"})
     public boolean addUser(String username, String password){
@@ -28,8 +32,8 @@ public class UserController {
     }
 
     @PostMapping("passUser")
-    public void passUserToItemService(@RequestBody User user){
-        System.out.println(user.getUsername());
+    public User passUserToItemService(@RequestBody User user){
+        return restTemplate.postForObject("http://localhost:8082/item/editUser", user, User.class);
     }
 
 }
