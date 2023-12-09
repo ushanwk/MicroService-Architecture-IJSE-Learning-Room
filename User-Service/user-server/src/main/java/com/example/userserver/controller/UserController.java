@@ -1,11 +1,11 @@
 package com.example.userserver.controller;
 
 import com.example.userserver.dto.UserDTO;
+import com.example.userserver.entity.User;
 import com.example.userserver.service.UserService;
 import com.example.userserver.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/user")
@@ -24,8 +24,12 @@ public class UserController {
 
     @GetMapping
     public String getAllUser(){
-        System.out.println("KKK");
         return "awaaa";
+    }
+
+    @PostMapping("passUser")
+    public void passUserToItemService(@RequestBody User user){
+        System.out.println(user.getUsername());
     }
 
 }

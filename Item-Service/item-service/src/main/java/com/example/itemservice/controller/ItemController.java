@@ -18,7 +18,7 @@ public class ItemController {
     @GetMapping
     public String getAllItem(){
         //call user
-      return restTemplate.getForObject("http://localhost:8082/user", String.class);
+      return restTemplate.getForObject("http://localhost:8081/user", String.class);
     }
 
 }
