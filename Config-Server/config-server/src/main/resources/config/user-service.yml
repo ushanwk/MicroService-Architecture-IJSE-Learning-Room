@@ -4,9 +4,7 @@ eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
-spring:
-  application:
-    name: user-service
+Spring:
   datasource:
     username: root
     password: ushan1234
